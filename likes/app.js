@@ -16,6 +16,7 @@ const requestListener = function (req, res) {
     res.write(JSON.stringify({status: 'liked'}));
 
     likes++;
+    return
   }
 
   if (req.url.startsWith('/dislike')) {
@@ -25,6 +26,7 @@ const requestListener = function (req, res) {
     res.write(JSON.stringify({status: 'disliked'}));
 
     likes--;
+    return
   }
 
   if (req.url.startsWith('/status')) {
@@ -32,6 +34,7 @@ const requestListener = function (req, res) {
     res.writeHead(200);
     
     res.write('Лайков: ' + likes);
+    return
   }
 
   res.end();
